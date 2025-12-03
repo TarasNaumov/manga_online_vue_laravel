@@ -24,6 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+
         Schema::dropIfExists('manga');
+
+        // Re-enable foreign key checks after the table is dropped
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 };

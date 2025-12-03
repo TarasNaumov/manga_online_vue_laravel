@@ -25,6 +25,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+
         Schema::dropIfExists('subcategories');
+
+        // 2. Увімкнення перевірки зовнішнього ключа
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 };
