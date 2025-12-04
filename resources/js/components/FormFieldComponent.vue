@@ -1,5 +1,6 @@
 <script setup>
-import { defineComponent } from "vue";
+import { defineEmits } from "vue";
+import { Field, ErrorMessage } from "vee-validate"
 
 const props = defineProps({
     id: { type: String, required: true },
@@ -8,11 +9,13 @@ const props = defineProps({
     type: { type: String, required: true },
     placeholder: { type: String, required: false },
 })
+
 </script>
 
 <template>
-    <div>
+    <div class="formField">
         <label :for="props.id">{{ props.label }}</label>
-        <input :type="props.type" :name="props.name" :placeholder="props.placeholder" :id="props.id">
+        <Field :type="props.type" :name="props.name" :placeholder="props.placeholder" :id="props.id" />
+        <ErrorMessage :name="name" class="error" />
     </div>
 </template>

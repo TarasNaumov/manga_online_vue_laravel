@@ -4,8 +4,39 @@
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
+@source '../**/*.vue';
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.full-screen-h {
+    height: 100vh;
+}
+
+.register-component .formField {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.register-component .formField input {
+    font-size: 14px;
+    width: 100%;
+    padding: 6px;
+    border: 2px solid #ffb700;
+}
+
+.register-component .formField input:focus {
+    border-color: #fff;
+    background: #fff;
+    color: #000;
+    outline: 0;
 }
