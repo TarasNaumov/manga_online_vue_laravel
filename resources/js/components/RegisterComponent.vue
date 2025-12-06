@@ -24,6 +24,7 @@ function onSubmit(values) {
 <template>
     <div class="full-screen-h register-component">
         <Form :validation-schema="registrationSchema" v-slot="{ meta, handleSubmit }" class="register-form">
+            <h2>Register</h2>
             <FormFieldComponent id="name" type="text" label="Your name" name="name" />
             <FormFieldComponent id="surname" type="text" label="Your surname" name="surname" />
             <FormFieldComponent id="email" type="email" label="Email" name="email" />
@@ -54,6 +55,11 @@ function onSubmit(values) {
         width: 400px;
         background: #303030;
         border-radius: 5px;
+    }
+
+    h2 {
+        font-size: 25px;
+        text-align: center;
     }
 
     .formFooter {

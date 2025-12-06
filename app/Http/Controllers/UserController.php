@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    function store(RegisterRequest $request) {
+    public function store(RegisterRequest $request) {
 
         $user = User::create([
             'name' => $request->name,
@@ -27,24 +27,20 @@ class UserController extends Controller
         ]);
     }
 
-    function login(LoginRequest $request)
+    public function login(LoginRequest $request)
     {
-        if (!Auth::attempt($request->only('email', 'password'))) {
+        $credentials = $request->validated();
+        if (!Auth::attempt($credentials)) {
             return response()->json([
-                'success' => false,
                 'message' => 'Invalid credentials'
             ], 401);
         }
 
-        $user = User::where('email', $request->email)->first();
-
-        $token = $user->createToken('auth_token')->plainTextToken;
+        $user = Auth::user();
 
         return response()->json([
-            'success' => true,
-            'message' => 'Logged in successfully',
-            'access_token' => $token,
-            'token_type' => 'Bearer'
+            'access_token' => $user->createToken('auth_token')->plainTextToken,
+            'token_type' => 'Bearer',
         ]);
     }
 }

@@ -21,22 +21,30 @@
     height: 100vh;
 }
 
-.register-component .formField {
+.register-component .formField,
+.login-component .formField {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.register-component .formField input {
+.register-component .formField input,
+.login-component .formField input {
     font-size: 14px;
     width: 100%;
     padding: 6px;
     border: 2px solid #ffb700;
 }
 
-.register-component .formField input:focus {
+.register-component .formField input:focus,
+.login-component .formField input:focus {
     border-color: #fff;
     background: #fff;
     color: #000;
     outline: 0;
+}
+
+.error {
+    font-size: 14px;
+    color: #dd1913;
 }
