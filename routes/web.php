@@ -3,4 +3,4 @@
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/{page}', IndexController::class);
+Route::get('/{any}', IndexController::class)->where('any', '.*');

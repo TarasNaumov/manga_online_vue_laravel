@@ -3,6 +3,9 @@ import FormFieldComponent from "./FormFieldComponent.vue";
 import {Form} from "vee-validate";
 import * as Yup from "yup";
 import axios from "axios";
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
 
 const loginSchema = Yup.object({
     email: Yup.string().required("Email is required").email("Email is uncorrected"),
@@ -16,7 +19,7 @@ function onSubmit(values) {
             localStorage.setItem('token', token);
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
-            // router.push('/');
+            router.push('/categories');
         }).catch(error => console.log(error));
 }
 </script>
