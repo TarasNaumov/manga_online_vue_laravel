@@ -19,7 +19,7 @@ function onSubmit(values) {
             localStorage.setItem('token', token);
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
-            router.push('/categories');
+            router.push('/main');
         }).catch(error => console.log(error));
 }
 </script>

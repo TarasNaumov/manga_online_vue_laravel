@@ -48,3 +48,8 @@
     font-size: 14px;
     color: #dd1913;
 }
+
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
+}
